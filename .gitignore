@@ -1,0 +1,8 @@
+*
+!.gitignore_global
+!.bash.functions
+!.bash_profile
+!.git-completion.bash
+!.gitconfig
+!.gitignore
+!.special_fonts

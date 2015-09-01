@@ -1,0 +1,57 @@
+[user]
+	name = Nicolas Baptista
+	email = nicolas@nbap.com.br
+[color]
+	ui = true
+	interactive = auto
+[alias]
+	d = describe
+	df = difftool
+	s = status
+	b = branch
+	cm = commit -m
+	cma = commit --amend
+	psf = push --force
+	plr = pull --rebase
+	ckb = checkout -b
+	ckt = checkout -t
+	ckf = checkout -f
+	rb = rebase
+	rbc = rebase --continue
+	rbs = rebase --skip
+	rba = rebase --abort
+	master = checkout master
+	develop = checkout develop
+	a = !git add . && git status
+	au = !git add -u . && git status
+	aa = !git add . && git add -u . && git status
+	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	fa = fetch --all
+
+[github]
+	user = nbap
+
+[push]
+	default = simple
+
+[core]
+	editor = nano
+	whitespace = trailing-space
+	excludesfile = /Users/nbap/.gitignore_global
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
