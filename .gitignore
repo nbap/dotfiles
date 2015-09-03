@@ -5,3 +5,10 @@
 !.git-completion.bash
 !.gitconfig
 !.gitignore
+!.tmuxinator.bash
+!.tmux.conf
+!.tmuxinator
+!.tmuxinator/*
+!.special_fonts
+!.special_fonts/*
+
