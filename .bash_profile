@@ -70,7 +70,7 @@ export EDITOR='subl'
 source ~/.profile
 source /Users/nbap/projetos/onyo/onyo-backend/deploy/dev-docker/utilities.bash
 source ~/.bash.functions
-source .tmuxinator.bash
+source ~/.tmuxinator.bash
 source ~/.git-completion.bash
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
