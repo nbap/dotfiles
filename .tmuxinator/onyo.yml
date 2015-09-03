@@ -1,0 +1,24 @@
+name: onyo
+root: ~/projetos/onyo/onyo-backend
+pre: boot2docker start
+pre_window: workon_backend
+windows:
+  - onyo_backend:
+      layout: bd2a,181x43,0,0[181x21,0,0{90x21,0,0,0,90x21,91,0,1},181x21,0,22{120x21,0,22,2,60x21,121,22,3}]
+      panes:
+        - docker:
+          - run_onyo
+        - docker_bash:
+          - b2d_activate
+          - sleep 5
+          - docker_enter_container $(dl)
+          - clear
+        - local_project:
+          - b2d_activate
+          - clear
+        - docker_django_shell:
+          - b2d_activate
+          - sleep 5
+          - docker_enter_container $(dl)
+          - clear
+          - py manage.py shell_plus
