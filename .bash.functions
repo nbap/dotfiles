@@ -34,5 +34,6 @@ run_onyo() {
 	eval "$(boot2docker shellinit)";
 	printf boot2docker ip;
 	cd $ONYO_ROOT_LOCATION/onyo-backend/deploy/dev-docker;
+	docker_cleanup;
 	docker-compose up;
 }
