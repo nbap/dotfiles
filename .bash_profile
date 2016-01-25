@@ -61,6 +61,8 @@ export GOPATH="$HOME/projetos/"
 export BYOBU_PREFIX=$(brew --prefix)
 #export ONYO_ROOT_PATH=/Users/nbap/projetos/onyo/onyo-backend
 export EDITOR='subl'
+
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/
 ######################################################################
 #
 # AUTO EXECUTION / IMPORTS SECTION
@@ -68,7 +70,7 @@ export EDITOR='subl'
 ######################################################################
 
 source ~/.profile
-source /Users/nbap/projetos/onyo/onyo-backend/deploy/dev-docker/utilities.bash
+source /Users/nbap/workspace/onyo/onyo-backend/deploy/dev-docker/utilities.bash
 source ~/.bash.functions
 source ~/.tmuxinator.bash
 source ~/.git-completion.bash

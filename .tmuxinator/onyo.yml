@@ -1,6 +1,6 @@
 name: onyo
-root: ~/projetos/onyo/onyo-backend
-pre: boot2docker start
+root: ~/workspace/onyo/onyo-backend
+pre: docker-machine start default
 pre_window: workon_backend
 windows:
   - onyo_backend:
@@ -9,16 +9,16 @@ windows:
         - docker:
           - run_onyo
         - docker_bash:
-          - b2d_activate
-          - sleep 5
+          - sleep 10
+          - docker_activate
           - docker_enter_container $(dl)
           - clear
         - local_project:
-          - b2d_activate
+          - docker_activate
           - clear
         - docker_django_shell:
-          - b2d_activate
-          - sleep 5
+          - sleep 10
+          - docker_activate
           - docker_enter_container $(dl)
           - clear
           - py manage.py shell_plus
