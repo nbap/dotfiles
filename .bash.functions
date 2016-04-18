@@ -1,4 +1,3 @@
-export ONYO_ROOT_LOCATION=~/workspace/onyo
 # find git branch into folders
 parse_git_branch() {
         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -14,21 +13,6 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-workon_backend(){
-	source $ONYO_ROOT_LOCATION/env_backend/bin/activate;
-	cd $ONYO_ROOT_LOCATION/onyo-backend;
-}
-
-workon_microservice(){
-	source $ONYO_ROOT_LOCATION/microservices/env_pos_service/bin/activate;
-	cd $ONYO_ROOT_LOCATION//microservices/onyo-pos-service;
-}
-
-workon_deploy(){
-	source $ONYO_ROOT_LOCATION/env_deploy/bin/activate;
-	cd $ONYO_ROOT_LOCATION/onyo-deploy;
-}
-
 use_docker() {
 	DMSTATUS=`docker-machine status default`;
 	if [ $DMSTATUS != 'Running' ]
@@ -38,15 +22,42 @@ use_docker() {
 	eval "$(docker-machine env default </dev/null)";
 }
 
-run_onyo() {
-	use_docker;
+#########################################
+# BASH UTILITIES FOR DOCKER
+# Author: Nicolas Baptista <nicolas@onyo.com>
+# Source this file in your .bash_profile
+#########################################
+
+alias d='docker'
+alias dl='docker ps -l -q'
+
+#ONLY FOR OSX USERS.
+#It starts docker-machine VM if necessary
+#and set it's env variables
+docker_activate(){
+	DMSTATUS=`docker-machine status default`;
+	if [ $DMSTATUS != 'Running' ]
+		then
+			docker-machine start default;
+	fi
+	eval "$(docker-machine env default)";
+}
+
+#Stops and remove all containers
+docker_cleanup(){
 	printf "Stoping all docker containers\n"
 	docker stop $(docker ps -a -q);
 	printf "Removing all docker containers\n"
 	docker rm $(docker ps -a -q);
+}
 
-	cd $ONYO_ROOT_LOCATION/onyo-backend/deploy/dev-docker;
-	printf docker-machine ip default;
-	docker-compose up -d;
-	docker-compose logs; while [ $? -ne 0 ]; do docker-compose logs; done;
+#Open the bash on a specific container
+docker_enter_container(){
+	if [ $1 ]
+		then
+		printf "Entering $1 container\n"
+		docker exec -it $1 /bin/bash
+	else
+    	printf "You must pass the container id\n"
+	fi
 }

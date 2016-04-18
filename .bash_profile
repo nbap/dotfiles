@@ -70,9 +70,13 @@ export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Hom
 ######################################################################
 
 source ~/.profile
-source /Users/nbap/workspace/onyo/onyo-backend/deploy/dev-docker/utilities.bash
 source ~/.bash.functions
 source ~/.tmuxinator.bash
 source ~/.git-completion.bash
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export LANG=en_US.UTF-8
+
+export NVM_DIR="/Users/nbap/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
