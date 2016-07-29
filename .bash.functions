@@ -13,15 +13,6 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-use_docker() {
-	DMSTATUS=`docker-machine status default`;
-	if [ $DMSTATUS != 'Running' ]
-		then
-			docker-machine start default;
-	fi
-	eval "$(docker-machine env default </dev/null)";
-}
-
 #########################################
 # BASH UTILITIES FOR DOCKER
 # Author: Nicolas Baptista <nicolas@onyo.com>
@@ -30,18 +21,6 @@ use_docker() {
 
 alias d='docker'
 alias dl='docker ps -l -q'
-
-#ONLY FOR OSX USERS.
-#It starts docker-machine VM if necessary
-#and set it's env variables
-docker_activate(){
-	DMSTATUS=`docker-machine status default`;
-	if [ $DMSTATUS != 'Running' ]
-		then
-			docker-machine start default;
-	fi
-	eval "$(docker-machine env default)";
-}
 
 #Stops and remove all containers
 docker_cleanup(){
@@ -84,5 +63,5 @@ docker_enter_container(){
 }
 
 docker_logs(){
-	docker-compose logs; while [ $? -ne 0 ]; do docker-compose logs; done;
+	docker-compose logs -f;
 }
