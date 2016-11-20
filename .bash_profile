@@ -11,8 +11,6 @@ alias cl='clear'
 alias py='python'
 alias s='subl'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
-alias mongo_start='mongod --config /usr/local/etc/mongod.conf'
-
 
 ######################################################################
 #
@@ -27,7 +25,6 @@ PAINT_BROWN='\033[00;33m'
 PAINT_BLUE='\033[01;34m'
 PAINT_PURPLE='\033[00;35m'
 PAINT_CYAN='\033[01;36m'
-
 END_COLOR="\033[00m"
 
 ######################################################################
@@ -40,43 +37,29 @@ END_COLOR="\033[00m"
 
 ######################################################################
 #
+# PATH SECTION
+#
+######################################################################
+
+#For PATH, see .bash.path file
+
+######################################################################
+#
 # VARIABLES SECTION
 #
 ######################################################################
 
-# pip should only run if there is a virtualenv currently activated
-#export PIP_REQUIRE_VIRTUALENV=true
-
-# cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-
-#PROMPT
-export PS1="$PAINT_GREEN\u@\h$END_COLOR in $PAINT_CYAN\W$END_COLOR$PAINT_PURPLE\$(parse_git_branch)$END_COLOR\n\$ "
-
-# PATH
-export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:/Users/nbap/Library/android-sdk-macosx/tools:/usr/local/opt/gettext/bin:/Users/nbap/.rvm/gems/ruby-2.1.1/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH
-
-export GOPATH="$HOME/projetos/"
-
-export BYOBU_PREFIX=$(brew --prefix)
-#export ONYO_ROOT_PATH=/Users/nbap/projetos/onyo/onyo-backend
+export LANG=en_US.UTF-8
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache # cache pip-installed packages to avoid re-downloading
+export PS1="$PAINT_GREEN\u@\h$END_COLOR in $PAINT_CYAN\W$END_COLOR$PAINT_PURPLE\$(parse_git_branch)$END_COLOR\n\$ " #PROMPT
 export EDITOR='subl'
 
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/
 ######################################################################
 #
 # AUTO EXECUTION / IMPORTS SECTION
 #
 ######################################################################
 
-source ~/.profile
 source ~/.bash.functions
-source ~/.tmuxinator.bash
 source ~/.git-completion.bash
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export LANG=en_US.UTF-8
-
-export NVM_DIR="/Users/nbap/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source ~/.bash.path
