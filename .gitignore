@@ -12,4 +12,5 @@
 !.tmuxinator/*
 !.special_fonts
 !.special_fonts/*
-
+!.sublime-settings
+!.sublime-settings/*
