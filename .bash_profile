@@ -9,6 +9,7 @@ alias g='git'
 alias erl='tail -n 100 ~/error_log'
 alias cl='clear'
 alias py='python'
+alias py3='python3'
 alias s='subl'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
 
