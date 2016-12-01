@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA[from pudb import set_trace; set_trace()]]></content>
+    <tabTrigger>dbg</tabTrigger>
+    <scope>source.python</scope>
+</snippet>

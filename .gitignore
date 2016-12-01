@@ -14,3 +14,5 @@
 !.special_fonts/*
 !.sublime-settings
 !.sublime-settings/*
+!.sublime-settings/snippets
+!.sublime-settings/snippets/*
