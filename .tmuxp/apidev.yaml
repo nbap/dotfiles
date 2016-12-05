@@ -1,0 +1,16 @@
+session_name: 3-pane-split
+windows:
+- window_name: Nexus API Dev
+  layout: main-vertical
+  shell_command_before:
+    - cd /Users/nbap/workspace/NexusEdge/projects/api
+  panes:
+    - shell_command:
+        - cd devops/development/docker
+        - docker-compose up -d
+        - docker_logs
+    - shell_command:
+        - git status
+    - shell_command:
+        - sleep 10
+        - docker_enter_container -L

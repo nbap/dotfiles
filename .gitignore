@@ -8,8 +8,8 @@
 !.gitignore
 !.tmuxinator.bash
 !.tmux.conf
-!.tmuxinator
-!.tmuxinator/*
+!.tmuxp
+!.tmuxp/*
 !.special_fonts
 !.special_fonts/*
 !.sublime-settings
