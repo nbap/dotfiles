@@ -15,4 +15,5 @@
 	"trim_trailing_white_space_on_save": true,
 	"ensure_newline_at_eof_on_save": true,
 	"rulers": [72, 80],
+	"folder_exclude_patterns": ["__pycache__"]
 }
