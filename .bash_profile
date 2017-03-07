@@ -46,21 +46,26 @@ END_COLOR="\033[00m"
 
 ######################################################################
 #
+# AUTO EXECUTION / IMPORTS SECTION
+#
+######################################################################
+
+function _source() {
+    test -e $1 && source $1
+}
+
+_source ~/.bash.functions
+_source ~/.git-completion.bash
+_source ~/.bash.path
+_source "${HOME}/.iterm2_shell_integration.bash"
+
+######################################################################
+#
 # VARIABLES SECTION
 #
 ######################################################################
 
 export LANG=en_US.UTF-8
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache # cache pip-installed packages to avoid re-downloading
-export PS1="$PAINT_GREEN\u@\h$END_COLOR in $PAINT_CYAN\W$END_COLOR$PAINT_PURPLE\$(parse_git_branch)$END_COLOR\n\$ " #PROMPT
+export PS1="$PAINT_GREEN\u@\h$END_COLOR in $PAINT_CYAN\W$END_COLOR$PAINT_PURPLE\$(parse_git_branch)$END_COLOR\n\[$(iterm2_prompt_mark)\]\$ " #PROMPT
 export EDITOR='subl'
-
-######################################################################
-#
-# AUTO EXECUTION / IMPORTS SECTION
-#
-######################################################################
-
-source ~/.bash.functions
-source ~/.git-completion.bash
-source ~/.bash.path
