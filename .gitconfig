@@ -1,6 +1,7 @@
 [user]
 	name = Nicolas Baptista
 	email = nicolas@nbap.com.br
+	signingkey = E7A69BB35F6D04A4
 [color]
 	ui = true
 	interactive = auto
@@ -12,7 +13,6 @@
 	cm = commit -m
 	cma = commit --amend
 	psf = push --force
-	plr = pull --rebase
 	ckb = checkout -b
 	ckt = checkout -t
 	ckf = checkout -f
@@ -20,38 +20,34 @@
 	rbc = rebase --continue
 	rbs = rebase --skip
 	rba = rebase --abort
-	master = checkout master
-	develop = checkout develop
+	ckm = checkout master
+	ckd = checkout development
 	a = !git add . && git status
 	au = !git add -u . && git status
 	aa = !git add . && git add -u . && git status
 	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	fa = fetch --all
-
 [github]
 	user = nbap
-
 [push]
 	default = simple
-
 [core]
 	editor = nano
 	whitespace = trailing-space
 	excludesfile = /Users/nbap/.gitignore_global
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[merge]
-	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [mergetool]
 	prompt = false
-[diff]
-	tool = Kaleidoscope
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	rebase = true
