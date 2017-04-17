@@ -1,0 +1,18 @@
+session_name: 3-pane-split
+windows:
+- window_name: CashTag Transactions
+  layout: main-vertical
+  shell_command_before:
+    - cd /Users/work/workspace/cashtag/repos/cashtag_transactions
+    - source env/local.sh
+  panes:
+    - shell_command:
+        - mix dev.docker
+        - clear
+    - shell_command:
+        - clear
+        - git status
+    - shell_command:
+        - sleep 10
+        - docker_enter_container -L
+        - clear
