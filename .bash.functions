@@ -65,3 +65,7 @@ docker_enter_container(){
 docker_logs(){
 	docker-compose logs -f;
 }
+
+workon_cashtag() {
+	cd workspace/cashtag/repos/cashtag_transactions;
+}
