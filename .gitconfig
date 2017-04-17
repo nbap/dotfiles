@@ -30,7 +30,7 @@
 [github]
 	user = nbap
 [push]
-	default = simple
+	default = current
 [core]
 	editor = nano
 	whitespace = trailing-space
@@ -45,7 +45,7 @@
 	required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

@@ -6,10 +6,10 @@
 
 alias ug='rvm gemset use'
 alias g='git'
-alias erl='tail -n 100 ~/error_log'
 alias cl='clear'
 alias py='python'
 alias py3='python3'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias s='subl'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
 
@@ -64,7 +64,7 @@ _source "${HOME}/.iterm2_shell_integration.bash"
 # VARIABLES SECTION
 #
 ######################################################################
-
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache # cache pip-installed packages to avoid re-downloading
 export PS1="$PAINT_GREEN\u@\h$END_COLOR in $PAINT_CYAN\W$END_COLOR$PAINT_PURPLE\$(parse_git_branch)$END_COLOR\n\[$(iterm2_prompt_mark)\]\$ " #PROMPT

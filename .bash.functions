@@ -52,11 +52,11 @@ docker_enter_container(){
 		printf "Incorrect option\n"
 	elif [ $LAST == true ]
 		then
-		docker exec -it $(dl) /bin/bash
+		docker exec -it $(dl) /bin/env
 	elif [ $1 ]
 		then
 		printf "Entering $1 container\n"
-		docker exec -it $1 /bin/bash
+		docker exec -it $1 /bin/env
 	else
     	printf "You must pass the container id\n"
 	fi
