@@ -34,7 +34,6 @@ docker_cleanup(){
 docker_enter_container(){
 	LAST=false
 	ERROR=false
-
 	local OPTIND o a
 	while getopts ":lL" opt; do
 	  case "$opt" in
@@ -52,11 +51,11 @@ docker_enter_container(){
 		printf "Incorrect option\n"
 	elif [ $LAST == true ]
 		then
-		docker exec -it $(dl) /bin/env
+		docker exec -it $(dl) /bin/bash || docker exec -it $(dl) /bin/sh
 	elif [ $1 ]
 		then
 		printf "Entering $1 container\n"
-		docker exec -it $1 /bin/env
+		docker exec -it $1 /bin/bash || docker exec -it $1 /bin/sh
 	else
     	printf "You must pass the container id\n"
 	fi
