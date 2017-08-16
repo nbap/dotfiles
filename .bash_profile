@@ -12,6 +12,7 @@ alias py3='python3'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias s='subl'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
+alias tas='tmux attach-session'
 
 ######################################################################
 #
@@ -58,6 +59,8 @@ _source ~/.bash.functions
 _source ~/.git-completion.bash
 _source ~/.bash.path
 _source "${HOME}/.iterm2_shell_integration.bash"
+
+__git_complete g __git_main
 
 ######################################################################
 #
