@@ -1,13 +1,16 @@
 session_name: 3-pane-split
 windows:
-- window_name: CashTag Transactions
+- window_name: NiQ Transactions
   layout: main-vertical
   shell_command_before:
     - cd /Users/work/workspace/cashtag/repos/cashtag_transactions
     - source env/local.sh
   panes:
     - shell_command:
-        - mix dev.docker
+        - cd /Users/work/workspace/cashtag/repos/cashtag_transactions/devops
+        - ./build_files.py
+        - cd /Users/work/workspace/cashtag/repos/cashtag_transactions/devops/local
+        - docker-compose up -d
         - clear
     - shell_command:
         - clear
