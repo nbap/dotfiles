@@ -65,6 +65,6 @@ docker_logs(){
 	docker-compose logs -f;
 }
 
-workon_cashtag() {
-	cd workspace/cashtag/repos/cashtag_transactions;
+workon_niq() {
+	cd workspace/niq/repos/niq_transactions;
 }
