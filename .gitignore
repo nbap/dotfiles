@@ -16,3 +16,11 @@
 !.sublime-settings/*
 !.sublime-settings/snippets
 !.sublime-settings/snippets/*
+
+
+!.apache
+!.apache/*
+!.apache/extra
+!.apache/extra/*
+!.apache/users
+!.apache/users/*
