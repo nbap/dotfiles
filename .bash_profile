@@ -7,7 +7,7 @@
 alias ug='rvm gemset use'
 alias g='git'
 alias cl='clear'
-alias py='python'
+alias py=$(which python)
 alias py3='python3'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias s='subl'
