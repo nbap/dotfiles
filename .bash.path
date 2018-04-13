@@ -3,6 +3,7 @@ SINGLE_PATHS[1]=/opt/local/bin
 SINGLE_PATHS[2]=/opt/local/sbi
 SINGLE_PATHS[3]=/Applications/Postgres.app/Contents/Versions/9.6/bin
 SINGLE_PATHS[4]=/Applications/Firefox.app/Contents/MacOS
+SINGLE_PATHS[5]=/usr/local/opt/python/libexec/bin
 
 
 for single_path in "${SINGLE_PATHS[@]}"
