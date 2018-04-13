@@ -64,7 +64,3 @@ docker_enter_container(){
 docker_logs(){
 	docker-compose logs -f;
 }
-
-workon_niq() {
-	cd workspace/niq/repos/niq_transactions;
-}
