@@ -13,6 +13,15 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
+workon_hub() {
+	cd /Users/nbap/workspace/hub/repos/hubcode;
+}
+
+workon_doorman() {
+	cd /Users/nbap/workspace/hub/repos/doorman;
+	pipenv shell;
+}
+
 #########################################
 # BASH UTILITIES FOR DOCKER
 # Author: Nicolas Baptista <nicolas@onyo.com>

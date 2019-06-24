@@ -1,10 +1,11 @@
 SINGLE_PATHS[0]=/usr/local/bin
 SINGLE_PATHS[1]=/opt/local/bin
 SINGLE_PATHS[2]=/opt/local/sbi
-SINGLE_PATHS[3]=/Applications/Postgres.app/Contents/Versions/9.6/bin
+SINGLE_PATHS[3]=/Applications/Postgres.app/Contents/Versions/latest/bin
 SINGLE_PATHS[4]=/Applications/Firefox.app/Contents/MacOS
 SINGLE_PATHS[5]=/usr/local/opt/python/libexec/bin
-
+SINGLE_PATHS[6]=${ANDROID_HOME}/tools
+SINGLE_PATHS[7]=${ANDROID_HOME}/platform-tools
 
 for single_path in "${SINGLE_PATHS[@]}"
 do

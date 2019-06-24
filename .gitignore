@@ -2,6 +2,7 @@
 !.gitignore_global
 !.bash.functions
 !.bash.path
+!.bashrc
 !.bash_profile
 !.git-completion.bash
 !.gitconfig
