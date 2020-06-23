@@ -25,3 +25,9 @@
 !.apache/extra/*
 !.apache/users
 !.apache/users/*
+
+!.zsh/
+!.zshrc
+!.zprofile
+!.zsh.functions
+

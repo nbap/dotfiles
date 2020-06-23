@@ -1,0 +1,66 @@
+# find git branch into folders
+parse_git_branch() {
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# restart postgres
+pgr() {
+  kill `ps -ef | grep postgres | grep -v grep | awk '{print $2}'`
+}
+
+#execute python's PIP without a virtualenv
+syspip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+#########################################
+# BASH UTILITIES FOR DOCKER
+# Author: Nicolas Baptista <nicolas@onyo.com>
+# Source this file in your .bash_profile
+#########################################
+
+alias d='docker'
+alias dl='docker ps -l -q'
+
+#Stops and remove all containers
+docker_cleanup(){
+	printf "Stoping all docker containers\n"
+	docker stop $(docker ps -a -q);
+	printf "Removing all docker containers\n"
+	docker rm $(docker ps -a -q);
+}
+
+#Open the bash on a specific container
+docker_enter_container(){
+	LAST=false
+	ERROR=false
+	local OPTIND o a
+	while getopts ":lL" opt; do
+	  case "$opt" in
+	    l|L)
+	      LAST=true
+	      ;;
+	    \?)
+	      ERROR=true
+	      ;;
+	  esac
+	done
+
+	if [ $ERROR == true ]
+		then
+		printf "Incorrect option\n"
+	elif [ $LAST == true ]
+		then
+		docker exec -it $(dl) /bin/bash || docker exec -it $(dl) /bin/sh
+	elif [ $1 ]
+		then
+		printf "Entering $1 container\n"
+		docker exec -it $1 /bin/bash || docker exec -it $1 /bin/sh
+	else
+    	printf "You must pass the container id\n"
+	fi
+}
+
+docker_logs(){
+	docker-compose logs -f;
+}
