@@ -78,3 +78,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache # cache pip-installed packages to avo
 export PS1="$PAINT_GREEN\u@\h$END_COLOR in $PAINT_CYAN\W$END_COLOR$PAINT_PURPLE\$(parse_git_branch)$END_COLOR\n\[$(iterm2_prompt_mark)\]\$ " #PROMPT
 export EDITOR='subl'
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
