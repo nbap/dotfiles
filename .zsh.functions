@@ -13,6 +13,10 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
+pihole_disable() {
+	ssh pi@addams.local 'pihole disable 1m'
+}
+
 #########################################
 # BASH UTILITIES FOR DOCKER
 # Author: Nicolas Baptista <nicolas@onyo.com>
@@ -21,6 +25,7 @@ syspip(){
 
 alias d='docker'
 alias dl='docker ps -l -q'
+alias dc='docker-compose'
 
 #Stops and remove all containers
 docker_cleanup(){
