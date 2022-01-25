@@ -36,6 +36,7 @@ alias vs='code'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
 alias tas='tmux attach-session'
 alias pr='pipenv run'
+alias bkpext='rsync -avhP --exclude=".Spotlight-V100" --exclude=".TemporaryItems" --exclude=".Trashes" /Volumes/nbap_drive /Volumes/cloned_nbap_drive'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

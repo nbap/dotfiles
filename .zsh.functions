@@ -17,6 +17,10 @@ pihole_disable() {
 	ssh pi@addams.local 'pihole disable 1m'
 }
 
+pre_commit() {
+	mix format; mix credo --config-name default -a;
+}
+
 #########################################
 # BASH UTILITIES FOR DOCKER
 # Author: Nicolas Baptista <nicolas@onyo.com>

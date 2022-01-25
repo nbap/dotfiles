@@ -26,7 +26,7 @@
 	au = !git add -u . && git status
 	aa = !git add . && git add -u . && git status
 	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-	ll = log --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	ll = log --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %cr%Creset'
 	fa = fetch --all
 	clean = fetch origin --prune
 [github]
@@ -61,7 +61,7 @@
 	rebase = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
