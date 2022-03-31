@@ -23,7 +23,7 @@ nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 }
 
-alias j8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home; java -version"
+alias j8="export JAVA_HOME=/Users/nbap/.asdf/installs/java/adoptopenjdk-8.0.282+8; java -version"
 alias j13="export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home; java -version"
 
 alias ug='rvm gemset use'
@@ -36,7 +36,7 @@ alias vs='code'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
 alias tas='tmux attach-session'
 alias pr='pipenv run'
-alias bkpext='rsync -avhP --exclude=".Spotlight-V100" --exclude=".TemporaryItems" --exclude=".Trashes" /Volumes/nbap_drive /Volumes/cloned_nbap_drive'
+alias bkpext='rsync -avhP --exclude=".fseventsd" --exclude=".Spotlight-V100" --exclude=".TemporaryItems" --exclude=".Trashes" --exclude=".DocumentRevisions-V100" /Volumes/nbap_drive /Volumes/cloned_nbap_drive'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
