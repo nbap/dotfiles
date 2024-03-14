@@ -18,7 +18,7 @@ pihole_disable() {
 }
 
 pre_commit() {
-	mix format; mix credo --config-name default -a;
+	mix format; mix credo; mix dialyzer --format github;
 }
 
 #########################################

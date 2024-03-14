@@ -8,15 +8,18 @@ path=(/usr/local/bin
 	  /Applications/Postgres.app/Contents/Versions/latest/bin
     /usr/local/opt/openjdk/bin
     /usr/local/opt/openssl@1.1/bin
+    /opt/homebrew/bin
+    /opt/homebrew/opt/php@8.1/bin
+    /opt/homebrew/opt/php@8.1/sbin
+    /opt/homebrew/opt/imagemagick/bin
       $path)
-
 
 export PATH
 export ZSH="/Users/nbap/.oh-my-zsh"
 export PIPENV_IGNORE_VIRTUALENVS=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export GOPATH="/Users/nbap/.golang/"
+export MAGICK_HOME=/opt/homebrew/opt/imagemagick/
 
 nvm() {
   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -36,7 +39,8 @@ alias vs='code'
 alias remove_ds='sudo find ./ -name ".DS_Store" -depth -exec rm {} \;'
 alias tas='tmux attach-session'
 alias pr='pipenv run'
-alias bkpext='rsync -avhP --exclude=".fseventsd" --exclude=".Spotlight-V100" --exclude=".TemporaryItems" --exclude=".Trashes" --exclude=".DocumentRevisions-V100" /Volumes/nbap_drive /Volumes/cloned_nbap_drive'
+alias bkpext='rsync -avhP --exclude=".fseventsd" --exclude=".Spotlight-V100" --exclude=".TemporaryItems" --exclude=".Trashes" --exclude=".DocumentRevisions-V100" /Volumes/nbap_drive /Volumes/cloned_nbap_drive --delete-after'
+# alias php="/opt/homebrew/opt/php@8.1/bin/php"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -45,10 +49,8 @@ else
   export EDITOR='nano'
 fi
 
-
-
 plugins=(git)
-source /usr/local/opt/asdf/asdf.sh
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 source $ZSH/oh-my-zsh.sh
 source "${HOME}/.zsh.functions"
 parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' }
@@ -65,5 +67,5 @@ vcs_info_wrapper() {
 
 NEWLINE=$'\n'
 setopt prompt_subst
-PROMPT='%{$fg[green]%}%n@%m%{$reset_color%} in %{$fg[cyan]%}%~%{$reset_color%}%{$fg[magenta]%}$(vcs_info_wrapper)%{$reset_color%}${NEWLINE}$ '
-
+PROMPT='%F{40}%n@%m%{$reset_color%} in %F{45}%~%{$reset_color%}%F{200}$(vcs_info_wrapper)%{$reset_color%}${NEWLINE}$ '
+eval "$(atuin init zsh)"

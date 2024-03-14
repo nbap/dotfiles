@@ -20,14 +20,14 @@
 	rbc = rebase --continue
 	rbs = rebase --skip
 	rba = rebase --abort
-	ckm = checkout master
-	ckd = checkout development
+	swm = switch main
 	a = !git add . && git status
 	au = !git add -u . && git status
 	aa = !git add . && git add -u . && git status
 	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %cr%Creset'
 	fa = fetch --all
+	fr = !git fetch --all && git rebase origin/main
 	clean = fetch origin --prune
 [github]
 	user = nbap
