@@ -32,27 +32,20 @@
 [github]
 	user = nbap
 [push]
-	default = current
+	default = simple
 	autoSetupRemote = true
+	followTags = true
+
 [core]
 	editor = nano
 	whitespace = trailing-space
 	excludesfile = /Users/nbap/.gitignore_global
 	autocrlf = input
 [diff]
-  tool = meld
-[difftool]
-  prompt = false
-[difftool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
-[merge]
-  tool = meld
-[mergetool]
-  prompt = false
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -68,3 +61,23 @@
 	trustExitCode = true
 [pager]
 	branch = false
+[init]
+	defaultBranch = main
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[commit]
+	verbose = true
+[help]
+	autocorrect = prompt
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
